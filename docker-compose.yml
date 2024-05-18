@@ -1,0 +1,41 @@
+services:
+  magic-platform:
+    env_file:
+      - .env.dev
+    build:
+      context: .
+    command: /app/run_app.sh mage start $PROJECT_NAME
+    ports:
+      - 6789:6789
+    volumes:
+      - .:/$MAGE_CODE_PATH # /home/mage_code by default
+      # Store the data output on local machine to easily debug
+      - ~/.mage_data:/$MAGE_CODE_PATH/mage_data # /home/mage_code/mage_data by default
+      # Initial credentials to create an IAM user with only deployment permissions.
+      - ~/.aws:/root/.aws
+      - ~/.ssh:/root/.ssh:ro
+      - ~/.gitconfig:/root/.gitconfig:ro
+      - /Users/dangerous/Code/materia/mage-ai/mage_ai/api/resources:/usr/local/lib/python3.10/site-packages/mage_ai/api/resources
+    restart: on-failure:5
+    networks:
+      - app-network
+    depends_on:
+      - magic-database
+    stdin_open: true # used for interactive debugging
+    tty: true # used for interactive debugging
+  magic-database:
+    image: pgvector/pgvector:0.6.0-pg16
+    env_file:
+      - .env.dev
+    ports:
+      - 5432:5432
+    volumes:
+      - ~/.postgres/data:/var/lib/postgresql/data
+      # Custom database initialization scripts.
+      - ./scripts/database:/docker-entrypoint-initdb.d
+    restart: always
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge

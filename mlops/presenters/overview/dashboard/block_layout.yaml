@@ -1,0 +1,115 @@
+blocks:
+  distribution_of_performance_metrics:
+    configuration:
+      chart_type: histogram
+      group_by:
+      - rmse_Booster
+      x_axis_label_format: return value.toFixed(3)
+      x_tooltip_label_format: return 2
+      y_tooltip_label_format: 'const [xMin, xMax] = values.values;
+
+        return `${xMin.toFixed(3)} to ${xMax.toFixed(3)}`'
+    data_source:
+      type: chart_code
+    error: null
+    name: Distribution of performance metrics
+    skip_render: false
+    type: chart
+    uuid: distribution_of_performance_metrics
+  runs_by_model__pie_chart_:
+    configuration:
+      chart_type: pie chart
+      group_by:
+      - model
+    data_source:
+      type: chart_code
+    error: null
+    name: Runs by model (Pie chart)
+    skip_render: false
+    type: chart
+    uuid: runs_by_model__pie_chart_
+  time_series__mse_:
+    configuration:
+      chart_type: time series bar chart
+      group_by:
+      - start_time
+      metrics:
+      - aggregation: average
+        column: mse_Booster
+      - aggregation: average
+        column: mse_LinearRegression
+      - aggregation: average
+        column: mse_Lasso
+      time_interval: hour
+      x_axis_label_format: hh
+    data_source:
+      type: chart_code
+    error: null
+    name: Time series (MSE)
+    name_new: Time series (MSE)
+    skip_render: false
+    type: chart
+    uuid: time_series__mse_
+  total_runs_by_model:
+    configuration:
+      chart_style: horizontal
+      chart_type: bar chart
+      group_by:
+      - model
+      metrics:
+      - aggregation: count_distinct
+        column: run_uuid
+      y_sort_order: descending
+      y_tooltip_label_format: return `${value} total runs`
+    data_source:
+      type: chart_code
+    error: null
+    name: Total runs by model
+    skip_render: false
+    type: chart
+    uuid: total_runs_by_model
+  training_metrics__rmse_:
+    configuration:
+      chart_type: time series line chart
+      design:
+        x_grid_lines_hidden: true
+        y_grid_lines_hidden: true
+        y_values_smooth: true
+      group_by:
+      - start_time
+      metrics:
+      - aggregation: average
+        column: rmse_Booster
+      - aggregation: average
+        column: rmse_LinearRegression
+      - aggregation: average
+        column: rmse_Lasso
+      time_interval: minute
+      x_axis_label_format: h:mm
+      x_grid_lines_hidden: true
+      y_axis_label_format: return parseFloat(value).toFixed(3)
+      y_grid_lines_hidden: true
+      y_values_smooth: true
+    data_source:
+      type: chart_code
+    error: null
+    name: Training metrics (RMSE)
+    name_new: Training metrics (RMSE)
+    skip_render: false
+    type: chart
+    uuid: training_metrics__rmse_
+layout:
+- - block_uuid: training_metrics__rmse_
+    height: 400
+    max_width_percentage: 50
+    width: 2
+  - block_uuid: time_series__mse_
+    height: 400
+    width: 2
+- - block_uuid: total_runs_by_model
+    width: 1
+  - block_uuid: distribution_of_performance_metrics
+    max_width_percentage: 0
+    width: 2
+  - block_uuid: runs_by_model__pie_chart_
+    width: 1

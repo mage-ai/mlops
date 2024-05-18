@@ -1,0 +1,240 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_1_data_preparation/data_loaders/ingest.py
+  downstream_blocks:
+  - ingest_time_series_bar_chart_d1
+  - missing_values_for_ingest
+  - unique_values_for_ingest
+  - most_frequent_values_for_ingest
+  - summary_overview_for_ingest
+  - feature_profiles_for_ingest
+  - prepare
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Ingest
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: ingest
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_1_data_preparation/transformers/prepare.py
+  downstream_blocks:
+  - prepare_histogram_u9
+  - build
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Prepare
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - ingest
+  uuid: prepare
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_1_data_preparation/data_exporters/build.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Build
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - prepare
+  uuid: build
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-05-14 18:09:21.410093+00:00'
+data_integration: null
+description: Collect data from various sources, generate additional training data
+  if needed, and perform feature engineering to transform the raw data into a set
+  of useful input features.
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Data preparation
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: data_preparation
+variables:
+  split_on_feature: lpep_pickup_datetime
+  split_on_feature_value: '2024-02-01'
+  target: duration
+variables_dir: /root/.mage_data/unit_1_data_preparation
+widgets:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_type: time series bar chart
+    group_by:
+    - lpep_pickup_datetime
+    metrics:
+    - aggregation: count
+      column: lpep_pickup_datetime
+    time_interval: original
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: ingest_time series bar chart_d1
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: ingest_time_series_bar_chart_d1
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_style: horizontal
+    chart_type: bar chart
+    x: columns_with_mising_values
+    y: percentage_of_missing_values
+    y_sort_order: descending
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: missing values for ingest
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: missing_values_for_ingest
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_style: horizontal
+    chart_type: bar chart
+    x: columns
+    y: number_of_unique_values
+    y_sort_order: descending
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: unique values for ingest
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: unique_values_for_ingest
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_type: table
+    height: 3000
+    index: column_index
+    x: columns
+    y: rows
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: most frequent values for ingest
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: most_frequent_values_for_ingest
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_type: table
+    height: 3000
+    index: stats
+    x: headers
+    y: rows
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: summary overview for ingest
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: summary_overview_for_ingest
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_type: table
+    height: 3000
+    index: stats
+    x: columns
+    y: rows
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: feature profiles for ingest
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: feature_profiles_for_ingest
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    buckets: '20'
+    chart_type: histogram
+    x: x
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: prepare_histogram_u9
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - prepare
+  uuid: prepare_histogram_u9

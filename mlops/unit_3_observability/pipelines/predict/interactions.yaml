@@ -1,0 +1,10 @@
+blocks:
+  inference:
+  - description: Have fun!
+    layout: []
+    name: Make predictions without API requests
+    permissions: []
+    uuid: playground.yaml
+    variables: {}
+layout: []
+permissions: []

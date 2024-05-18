@@ -1,0 +1,10 @@
+training_set:
+  object_type: pipeline
+  object_uuid: data_preparation
+  outdated_after:
+    seconds: 600
+  project: unit_2_training
+  repo_path: /home/src/default_repo/mlops/mlops/unit_2_training
+  settings:
+    build:
+      partitions: 1

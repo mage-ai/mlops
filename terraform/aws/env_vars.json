@@ -1,0 +1,34 @@
+[
+  {
+    "name": "ENV",
+    "value": "production"
+  },
+  {
+    "name": "AWS_ACCESS_KEY_ID",
+    "value": "${aws_access_key_id}"
+  },
+  {
+    "name": "AWS_SECRET_ACCESS_KEY",
+    "value": "${aws_secret_access_key}"
+  },
+  {
+    "name": "AWS_REGION_NAME",
+    "value": "${aws_region_name}"
+  },
+  {
+    "name": "MAGE_EC2_SUBNET_ID",
+    "value": "${ec2_subnet_id}"
+  },
+  {
+    "name": "MAGE_PRESENTERS_DIRECTORY",
+    "value": "mlops/presenters"
+  },
+  {
+    "name": "SMTP_EMAIL",
+    "value": "${smtp_email}"
+  },
+  {
+    "name": "SMTP_PASSWORD",
+    "value": "${smtp_password}"
+  }
+]

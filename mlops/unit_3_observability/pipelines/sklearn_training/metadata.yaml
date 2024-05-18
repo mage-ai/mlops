@@ -1,0 +1,123 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    global_data_product:
+      project: unit_3_observability
+      uuid: training_set
+  downstream_blocks:
+  - hyperparameter_tuning/sklearn
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Training set
+  retry_config: null
+  status: executed
+  timeout: null
+  type: global_data_product
+  upstream_blocks: []
+  uuid: training_set
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_2_training/markdowns/dynamic_block_info.md
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Dynamic block info
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: dynamic_block_info
+- all_upstream_blocks_executed: true
+  color: teal
+  configuration:
+    dynamic: true
+    file_source:
+      path: unit_2_training/custom/load_models.py
+  downstream_blocks:
+  - hyperparameter_tuning/sklearn
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Load models
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks: []
+  uuid: load_models
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_2_training/transformers/hyperparameter_tuning/sklearn.py
+  downstream_blocks:
+  - sklearn
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Hyperparameter tuning/sklearn
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - training_set
+  - load_models
+  uuid: hyperparameter_tuning/sklearn
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_2_training/data_exporters/sklearn.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: sklearn
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - hyperparameter_tuning/sklearn
+  uuid: sklearn
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-05-15 01:11:30.960600+00:00'
+data_integration: null
+description: Train models from the sklearn library (e.g. ExtraTreesRegressor, GradientBoostingRegressor,
+  Lasso, LinearRegression, LinearSVR, RandomForestRegressor).
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: sklearn training
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags:
+- business critical
+type: python
+uuid: sklearn_training
+variables:
+  max_evaluations: 1
+  random_state: 7
+variables_dir: /root/.mage_data/unit_3_observability
+widgets: []

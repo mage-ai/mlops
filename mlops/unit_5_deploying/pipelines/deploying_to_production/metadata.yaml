@@ -1,0 +1,228 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: null
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Running operations in production
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: running_operations_in_production
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: null
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Create IAM policy to deploy Mage
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: create_iam_policy_to_deploy_mage
+- all_upstream_blocks_executed: true
+  color: yellow
+  configuration:
+    file_path: unit_5_deploying/custom/permissions.py
+    file_source:
+      path: unit_5_deploying/custom/permissions.py
+  downstream_blocks:
+  - infrastructure_setup
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Permissions
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks: []
+  uuid: permissions
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: null
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Terraform setup docs
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: terraform_setup_docs
+- all_upstream_blocks_executed: true
+  color: blue
+  configuration:
+    file_path: unit_5_deploying/custom/infrastructure_setup.py
+    file_source:
+      path: unit_5_deploying/custom/infrastructure_setup.py
+  downstream_blocks:
+  - teardown_deployed_resources
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Infrastructure setup
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - permissions
+  uuid: infrastructure_setup
+- all_upstream_blocks_executed: true
+  color: pink
+  configuration:
+    file_path: unit_5_deploying/custom/teardown_deployed_resources.py
+    file_source:
+      path: unit_5_deploying/custom/teardown_deployed_resources.py
+  downstream_blocks:
+  - deploy
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Teardown deployed resources
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - infrastructure_setup
+  uuid: teardown_deployed_resources
+- all_upstream_blocks_executed: true
+  color: teal
+  configuration:
+    file_path: unit_5_deploying/custom/deploy.py
+    file_source:
+      path: unit_5_deploying/custom/deploy.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Deploy
+  retry_config: null
+  status: updated
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - teardown_deployed_resources
+  uuid: deploy
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: null
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Version control
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: version_control_docs
+- all_upstream_blocks_executed: true
+  color: grey
+  configuration:
+    file_source:
+      path: unit_5_deploying/custom/version_control.py
+  downstream_blocks:
+  - ci_and_cd
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: version_control
+  retry_config: null
+  status: updated
+  timeout: null
+  type: custom
+  upstream_blocks: []
+  uuid: version_control
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: null
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: CICD
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: cicd
+- all_upstream_blocks_executed: false
+  color: purple
+  configuration:
+    file_path: unit_5_deploying/custom/ci_and_cd.py
+    file_source:
+      path: unit_5_deploying/custom/ci_and_cd.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: CI and CD
+  retry_config: null
+  status: updated
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - version_control
+  uuid: ci_and_cd
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-05-16 12:07:35.124087+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Deploying to production
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: deploying_to_production
+variables:
+  destroy: 1
+  prevent_destroy_ecr: false
+variables_dir: /home/src/mage_data/unit_5_deploying
+widgets: []
