@@ -14,19 +14,4 @@ features:
   notebook_block_output_split_view: true
   operation_history: true
   polars: true
-project_uuid: 36404d0ffc214b8a89f598f3522c1a20
 help_improve_mage: true
-# https://docs.mage.ai/integrations/observability/alerting-email
-# https://support.google.com/mail/answer/185833?hl=en
-notification_config:
-  alert_on:
-    - trigger_failure
-    - trigger_passed_sla
-    - trigger_success
-  email_config:
-    smtp_host: smtp.gmail.com
-    smtp_user: "{{ env_var('SMTP_EMAIL') }}"
-    smtp_password: "{{ env_var('SMTP_PASSWORD') }}"
-    smtp_mail_from: "{{ env_var('SMTP_EMAIL') }}"
-    to_emails:
-      - "{{ env_var('SMTP_EMAIL') }}"

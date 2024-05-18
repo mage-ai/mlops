@@ -96,12 +96,6 @@ variable "enable_ci_cd" {
   default     = true
 }
 
-variable "prevent_destroy_ecr" {
-  description = "Dynamically added by the Mage Python script."
-  default     = false
-  type        = bool
-}
-
 variable "smtp_email" {
   description = "Dynamically added by the Mage Python script."
   default     = ""

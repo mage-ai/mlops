@@ -38,7 +38,7 @@ blocks:
   configuration:
     file_path: unit_5_deploying/custom/permissions.py
     file_source:
-      path: unit_5_deploying/custom/permissions.py
+      path: null
   downstream_blocks:
   - infrastructure_setup
   executor_config: null
@@ -74,7 +74,7 @@ blocks:
   configuration:
     file_path: unit_5_deploying/custom/infrastructure_setup.py
     file_source:
-      path: unit_5_deploying/custom/infrastructure_setup.py
+      path: null
   downstream_blocks:
   - teardown_deployed_resources
   executor_config: null
@@ -94,7 +94,7 @@ blocks:
   configuration:
     file_path: unit_5_deploying/custom/teardown_deployed_resources.py
     file_source:
-      path: unit_5_deploying/custom/teardown_deployed_resources.py
+      path: null
   downstream_blocks:
   - deploy
   executor_config: null
@@ -114,7 +114,7 @@ blocks:
   configuration:
     file_path: unit_5_deploying/custom/deploy.py
     file_source:
-      path: unit_5_deploying/custom/deploy.py
+      path: null
   downstream_blocks:
   - ci_and_cd
   executor_config: null
@@ -123,7 +123,7 @@ blocks:
   language: python
   name: Deploy
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: custom
   upstream_blocks:
@@ -180,12 +180,12 @@ blocks:
   type: markdown
   upstream_blocks: []
   uuid: add_secrets_to_github_repo
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: purple
   configuration:
     file_path: unit_5_deploying/custom/ci_and_cd.py
     file_source:
-      path: unit_5_deploying/custom/ci_and_cd.py
+      path: null
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
@@ -223,6 +223,7 @@ type: python
 uuid: deploying_to_production
 variables:
   destroy: 1
+  password: password
   prevent_destroy_ecr: false
 variables_dir: /home/src/mage_data/unit_3_observability
 widgets: []

@@ -8,14 +8,16 @@ services:
     ports:
       - 6789:6789
     volumes:
-      - .:/$MAGE_CODE_PATH # /home/mage_code by default
-      # Store the data output on local machine to easily debug
-      - ~/.mage_data:/$MAGE_CODE_PATH/mage_data # /home/mage_code/mage_data by default
-      # Initial credentials to create an IAM user with only deployment permissions.
+      # Mount your local codebase to the container.
+      - .:/$MAGE_CODE_PATH
+      # Store the data output on local machine to easily debug (optional).
+      - ~/.mage_data:/$MAGE_CODE_PATH/mage_data
+      # Initial credentials to create an IAM user with limited permissions for deployment.
       - ~/.aws:/root/.aws
+      # Local machine’s SSH keys to pull and push to your GitHub repository.
       - ~/.ssh:/root/.ssh:ro
+      # Local machine’s GitHub configs
       - ~/.gitconfig:/root/.gitconfig:ro
-      - /Users/dangerous/Code/materia/mage-ai/mage_ai/api/resources:/usr/local/lib/python3.10/site-packages/mage_ai/api/resources
     restart: on-failure:5
     networks:
       - app-network
@@ -31,7 +33,7 @@ services:
       - 5432:5432
     volumes:
       - ~/.postgres/data:/var/lib/postgresql/data
-      # Custom database initialization scripts.
+      # Custom database initialization scripts (optional).
       - ./scripts/database:/docker-entrypoint-initdb.d
     restart: always
     networks:
