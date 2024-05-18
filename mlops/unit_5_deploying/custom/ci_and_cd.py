@@ -6,7 +6,6 @@ from mlops.utils.deploy.aws import (
     create_access_key_for_user,
     create_policy,
     create_user,
-    reset,
     save_credentials_to_file,
 )
 
