@@ -16,10 +16,11 @@ RUN pip3 install -r ${USER_CODE_PATH}/requirements.txt
 ENV PYTHONPATH="${PYTHONPATH}:${MAGE_CODE_PATH}/${PROJECT_NAME}"
 
 # Installing necessary utilities and Terraform.
-RUN apt-get update && \
-  apt-get install -y wget unzip && \
-  wget https://releases.hashicorp.com/terraform/1.8.3/terraform_1.8.3_linux_amd64.zip && \
-  unzip terraform_1.8.3_linux_amd64.zip -d /usr/local/bin/ && \
-  rm terraform_1.8.3_linux_amd64.zip
+# Uncomment the following lines if you want to use Terraform in Docker.
+# RUN apt-get update && \
+#   apt-get install -y wget unzip && \
+#   wget https://releases.hashicorp.com/terraform/1.8.3/terraform_1.8.3_linux_amd64.zip && \
+#   unzip terraform_1.8.3_linux_amd64.zip -d /usr/local/bin/ && \
+#   rm terraform_1.8.3_linux_amd64.zip
 
 CMD ["/bin/sh", "-c", "/app/run_app.sh"]
