@@ -4,7 +4,7 @@ training_set:
   outdated_after:
     seconds: 700
   project: unit_3_observability
-  repo_path: /home/src/default_repo/mlops/mlops/unit_3_observability
+  repo_path: /home/src/mlops/mlops/unit_3_observability
   settings:
     build:
       partitions: 1
@@ -17,7 +17,7 @@ xgboost:
   outdated_starting_at:
     hour_of_day: 12
   project: unit_3_observability
-  repo_path: /home/src/default_repo/mlops/mlops/unit_3_observability
+  repo_path: /home/src/mlops/mlops/unit_3_observability
   settings:
     xgboost:
       partitions: 1
