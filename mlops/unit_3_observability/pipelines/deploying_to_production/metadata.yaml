@@ -36,7 +36,7 @@ blocks:
 - all_upstream_blocks_executed: true
   color: yellow
   configuration:
-    file_path: unit_5_deploying/custom/permissions.py
+    file_path: unit_3_observability/custom/permissions.py
     file_source:
       path: null
   downstream_blocks:
@@ -72,7 +72,7 @@ blocks:
 - all_upstream_blocks_executed: true
   color: blue
   configuration:
-    file_path: unit_5_deploying/custom/infrastructure_setup.py
+    file_path: unit_3_observability/custom/infrastructure_setup.py
     file_source:
       path: null
   downstream_blocks:
@@ -92,7 +92,7 @@ blocks:
 - all_upstream_blocks_executed: true
   color: pink
   configuration:
-    file_path: unit_5_deploying/custom/teardown_deployed_resources.py
+    file_path: unit_3_observability/custom/teardown_deployed_resources.py
     file_source:
       path: null
   downstream_blocks:
@@ -112,7 +112,7 @@ blocks:
 - all_upstream_blocks_executed: true
   color: teal
   configuration:
-    file_path: unit_5_deploying/custom/deploy.py
+    file_path: unit_3_observability/custom/deploy.py
     file_source:
       path: null
   downstream_blocks:
@@ -183,7 +183,7 @@ blocks:
 - all_upstream_blocks_executed: false
   color: purple
   configuration:
-    file_path: unit_5_deploying/custom/ci_and_cd.py
+    file_path: unit_3_observability/custom/ci_and_cd.py
     file_source:
       path: null
   downstream_blocks: []
