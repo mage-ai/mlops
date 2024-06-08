@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   magic-platform:
     env_file:
@@ -25,6 +27,7 @@ services:
       - magic-database
     stdin_open: true # used for interactive debugging
     tty: true # used for interactive debugging
+
   magic-database:
     image: pgvector/pgvector:0.6.0-pg16
     env_file:
@@ -38,6 +41,18 @@ services:
     restart: always
     networks:
       - app-network
+
+  mlflow:
+    build:
+      context: .
+      dockerfile: mlflow.dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - "${PWD}/mlflow:/home/mlflow/"
+    networks:
+      - app-network
+
 networks:
   app-network:
     driver: bridge
