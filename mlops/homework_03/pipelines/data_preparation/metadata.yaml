@@ -1,0 +1,148 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/data_loaders/data_ingestion.py
+  downstream_blocks:
+  - data_ingestion_time_series_line_chart_p6
+  - missing_values_for_data_ingestion
+  - unique_values_for_data_ingestion
+  - data_preparation
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: data ingestion
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: data_ingestion
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/transformers/data_preparation.py
+  downstream_blocks:
+  - model_training
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: data preparation
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - data_ingestion
+  uuid: data_preparation
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/transformers/model_training.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: model training
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - data_preparation
+  uuid: model_training
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-06-09 08:06:27.937740+00:00'
+data_integration: null
+description: going to ingest march 2023 Yellow taxi trips data
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: data preparation
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: data_preparation
+variables_dir: /home/src/mage_data/homework_03
+widgets:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_type: time series bar chart
+    group_by:
+    - tpep_pickup_datetime
+    metrics:
+    - aggregation: count
+      column: tpep_pickup_datetime
+    time_interval: original
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: data_ingestion_time series line chart_p6
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - data_ingestion
+  uuid: data_ingestion_time_series_line_chart_p6
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_style: horizontal
+    chart_type: bar chart
+    x: columns_with_mising_values
+    y: percentage_of_missing_values
+    y_sort_order: descending
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: missing values for data_ingestion
+  retry_config: null
+  status: failed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - data_ingestion
+  uuid: missing_values_for_data_ingestion
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_style: horizontal
+    chart_type: bar chart
+    x: columns
+    y: number_of_unique_values
+    y_sort_order: descending
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: unique values for data_ingestion
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - data_ingestion
+  uuid: unique_values_for_data_ingestion
