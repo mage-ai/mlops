@@ -16,6 +16,23 @@ blocks:
   type: markdown
   upstream_blocks: []
   uuid: online_inference_guide
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework03/custom/inference.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: inference
+  retry_config: null
+  status: updated
+  timeout: null
+  type: custom
+  upstream_blocks: []
+  uuid: inference
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
