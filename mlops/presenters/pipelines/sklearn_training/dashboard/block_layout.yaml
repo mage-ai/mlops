@@ -1,4 +1,8 @@
 blocks:
+  autumn_charm:
+    name: autumn charm
+    type: chart
+    uuid: autumn_charm
   completed_pipeline_runs_daily_sklearn_training_w6:
     configuration:
       chart_type: time series line chart
@@ -33,6 +37,10 @@ blocks:
     name: Failed pipeline runs daily
     type: chart
     uuid: failed_pipeline_runs_daily_sklearn_training_v0
+  lucid_treasure:
+    name: lucid treasure
+    type: chart
+    uuid: lucid_treasure
   pipeline_run_status_sklearn_training_g6:
     configuration:
       chart_style: horizontal
@@ -122,4 +130,8 @@ layout:
 - - block_uuid: failed_pipeline_runs_daily_sklearn_training_v0
     width: 1
 - - block_uuid: elemental_glacier
+    width: 1
+- - block_uuid: lucid_treasure
+    width: 1
+- - block_uuid: autumn_charm
     width: 1

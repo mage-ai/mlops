@@ -28,6 +28,8 @@ platform_settings:
 project_uuid: 4eb1ba87294f4653980260d58dfe7fec
 projects:
   homework-03: {}
+  homework03:
+    path: homework03
   unit_0_setup: {}
   unit_2_training: {}
   unit_3_observability: {}

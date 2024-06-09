@@ -1,0 +1,63 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework03/sensors/detect_new_data.py
+  downstream_blocks:
+  - retrain/sklearn
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Detect new data
+  retry_config: null
+  status: executed
+  timeout: null
+  type: sensor
+  upstream_blocks: []
+  uuid: detect_new_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dynamic: true
+    file_source:
+      path: homework03/custom/retrain/sklearn.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: retrain/sklearn
+  retry_config: null
+  status: updated
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - detect_new_data
+  uuid: retrain/sklearn
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-06-09 08:15:39.836909+00:00'
+data_integration: null
+description: Retrain the sklearn model and improve prediction performance
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Automatic retraining
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags:
+- retraining
+type: python
+uuid: automatic_retraining
+variables_dir: /home/src/mage_data/homework03
+widgets: []

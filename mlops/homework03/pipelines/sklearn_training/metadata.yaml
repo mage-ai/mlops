@@ -2,17 +2,18 @@ blocks:
 - all_upstream_blocks_executed: true
   color: null
   configuration:
+    file_path: homework03/global_data_products/training_set.py
     file_source:
-      path: homework-03/global_data_products/training_set.py
+      path: homework03/global_data_products/training_set.py
     global_data_product:
       uuid: training_set
   downstream_blocks:
-  - hyperparameter_tuning/sklearn
+  - hyperparameter_tuning_/sklearn
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: Training set
+  name: training set
   retry_config: null
   status: executed
   timeout: null
@@ -22,33 +23,16 @@ blocks:
 - all_upstream_blocks_executed: true
   color: null
   configuration:
-    file_source:
-      path: homework-03/markdowns/dynamic_blocks.md
-  downstream_blocks: []
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: markdown
-  name: Dynamic blocks
-  retry_config: null
-  status: updated
-  timeout: null
-  type: markdown
-  upstream_blocks: []
-  uuid: dynamic_blocks
-- all_upstream_blocks_executed: true
-  color: null
-  configuration:
     dynamic: true
     file_source:
-      path: homework-03/custom/load_models.py
+      path: homework03/custom/load_models.py
   downstream_blocks:
-  - hyperparameter_tuning/sklearn
+  - hyperparameter_tuning_/sklearn
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: Load models
+  name: load models
   retry_config: null
   status: executed
   timeout: null
@@ -59,14 +43,14 @@ blocks:
   color: null
   configuration:
     file_source:
-      path: homework-03/transformers/hyperparameter_tuning/sklearn.py
+      path: homework03/transformers/hyperparameter_tuning_/sklearn.py
   downstream_blocks:
   - sklearn
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: hyperparameter tuning/sklearn
+  name: hyperparameter_tuning /sklearn
   retry_config: null
   status: executed
   timeout: null
@@ -74,12 +58,12 @@ blocks:
   upstream_blocks:
   - training_set
   - load_models
-  uuid: hyperparameter_tuning/sklearn
+  uuid: hyperparameter_tuning_/sklearn
 - all_upstream_blocks_executed: true
   color: null
   configuration:
     file_source:
-      path: homework-03/data_exporters/sklearn.py
+      path: homework03/data_exporters/sklearn.py
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
@@ -91,21 +75,20 @@ blocks:
   timeout: null
   type: data_exporter
   upstream_blocks:
-  - hyperparameter_tuning/sklearn
+  - hyperparameter_tuning_/sklearn
   uuid: sklearn
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
 conditionals: []
-created_at: '2024-06-07 19:21:11.260304+00:00'
+created_at: '2024-06-09 06:01:11.011335+00:00'
 data_integration: null
-description: Train models using ExtraTreesRegressor, GradientBoostingRegressor, Lasso,
-  LinearRegression, LinearSVR, and RandomForestRegressor from sklearn.
+description: Train a linear regression with default parameters
 executor_config: {}
 executor_count: 1
 executor_type: null
 extensions: {}
-name: Training set
+name: sklearn training
 notification_config: {}
 remote_variables_dir: null
 retry_config: {}
@@ -115,9 +98,9 @@ settings:
 spark_config: {}
 tags: []
 type: python
-uuid: training_set
+uuid: sklearn_training
 variables:
   max_evaluations: 50
   random_state: 7
-variables_dir: /home/src/mage_data/homework-03
+variables_dir: /home/src/mage_data/homework03
 widgets: []
