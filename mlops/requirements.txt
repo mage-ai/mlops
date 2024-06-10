@@ -9,3 +9,4 @@ scikit-learn
 seaborn
 shap
 xgboost
+joblib

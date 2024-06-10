@@ -38,6 +38,16 @@ services:
     restart: always
     networks:
       - app-network
+  mlflow:
+    build:
+      context: .
+      dockerfile: mlflow.dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - "${PWD}/mlflow:/home/mlflow/"
+    networks:
+      - app-network
 networks:
   app-network:
     driver: bridge
