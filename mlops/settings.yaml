@@ -1,4 +1,6 @@
 projects:
+  module_3:
+    path: module_3
   unit_0_setup: {}
   unit_1_data_preparation: {}
   unit_2_training: {}
