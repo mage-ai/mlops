@@ -3,7 +3,7 @@ fastparquet
 graphviz
 hyperopt
 jupyter
-mlflow==2.12.1
+mlflow==2.16.0
 pandas
 scikit-learn
 seaborn
